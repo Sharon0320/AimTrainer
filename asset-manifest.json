@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/aimtrainer/static/css/main.b8af4b9b.css",
+    "main.js": "/aimtrainer/static/js/main.c7002d08.js",
+    "static/js/453.8d528c99.chunk.js": "/aimtrainer/static/js/453.8d528c99.chunk.js",
+    "index.html": "/aimtrainer/index.html",
+    "main.b8af4b9b.css.map": "/aimtrainer/static/css/main.b8af4b9b.css.map",
+    "main.c7002d08.js.map": "/aimtrainer/static/js/main.c7002d08.js.map",
+    "453.8d528c99.chunk.js.map": "/aimtrainer/static/js/453.8d528c99.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8af4b9b.css",
+    "static/js/main.c7002d08.js"
+  ]
+}
