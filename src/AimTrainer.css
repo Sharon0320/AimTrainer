@@ -1,0 +1,36 @@
+/* AimTrainer.css */
+.AimTrainer {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  input {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .score {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .target {
+    position: absolute;
+    background-color: red;
+    cursor: pointer;
+  }
+  
