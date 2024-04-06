@@ -1,10 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Aimtrainer from './AimTrainer';
+import AimTrainer from './AimTrainer.js';
 
 function App() {
   return (
-    <Aimtrainer/>
+    <div>
+    <AimTrainer/>
+    </div>
   );
 }
 

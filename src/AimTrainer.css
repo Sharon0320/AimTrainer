@@ -1,14 +1,13 @@
-/* AimTrainer.css */
 .AimTrainer {
     text-align: center;
     margin-top: 100px;
   }
   
-  input {
+  .input {
     margin-bottom: 10px;
   }
   
-  button {
+  .button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #4CAF50;
@@ -18,7 +17,7 @@
     border-radius: 5px;
   }
   
-  button:hover {
+  .button:hover {
     background-color: #45a049;
   }
   
@@ -33,4 +32,3 @@
     background-color: red;
     cursor: pointer;
   }
-  

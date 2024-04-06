@@ -1,4 +1,3 @@
-// AimTrainer.js
 import React, { useState, useEffect } from 'react';
 import './AimTrainer.css';
 
@@ -28,29 +27,31 @@ function AimTrainer() {
     return () => clearTimeout(timer);
   }, [gameStarted, timeLeft]);
 
-  const startGame = () => {
-    setScore(0);
-    setTimeLeft(gameDuration);
-    setGameStarted(true);
-    generateTarget();
+  const generateTarget = () => {
+    let randomPosition;
+    do {
+      randomPosition = {
+        top: Math.random() * (window.innerHeight - 100),
+        left: Math.random() * (window.innerWidth - 100)
+      };
+      const distance = Math.sqrt(
+        Math.pow(randomPosition.top - targetPosition.top, 2) +
+        Math.pow(randomPosition.left - targetPosition.left, 2)
+      );
+      if (distance > 100) {
+        setTargetPosition(randomPosition);
+        break;
+      }
+    } while (true);
   };
 
-  const generateTarget = () => {
-    const randomPosition = {
-      top: Math.random() * (window.innerHeight - 100),
-      left: Math.random() * (window.innerWidth - 100)
-    };
-  
-    const distance = Math.sqrt(
-      Math.pow(randomPosition.top - targetPosition.top, 2) +
-      Math.pow(randomPosition.left - targetPosition.left, 2)
-    );
-  
-    if (distance > 100) {
-      setTargetPosition(randomPosition);
-    } else {
-      generateTarget();
-    }
+  const startGame = () => {
+    setScore(0);
+    const duration = parseInt(inputValue.trim());
+    setGameDuration(duration);
+    setTimeLeft(duration);
+    setGameStarted(true);
+    generateTarget();
   };
 
   const handleTargetClick = () => {
@@ -68,15 +69,14 @@ function AimTrainer() {
 
   const handleStartButtonClick = () => {
     if (inputValue.trim() !== '') {
-      setGameDuration(parseInt(inputValue.trim()));
-      setTimeLeft(parseInt(inputValue.trim()));
       startGame();
     }
   };
 
   const handleDifficultyChange = (event) => {
-    setSelectedDifficulty(event.target.value);
-    setTargetSizeByMode(event.target.value);
+    const difficulty = event.target.value;
+    setSelectedDifficulty(difficulty);
+    setTargetSizeByMode(difficulty);
   };
 
   const setTargetSizeByMode = (mode) => {
@@ -135,16 +135,16 @@ function AimTrainer() {
         <div>
           <p>Select difficulty:</p>
           <div>
-            <input type="radio" id="easy" name="difficulty" value="easy" checked={selectedDifficulty === 'easy'} onChange={handleDifficultyChange} />
-            <label htmlFor="easy">Easy</label>
+            <input type="radio" id="difficulty-easy" name="difficulty" value="easy" checked={selectedDifficulty === 'easy'} onChange={handleDifficultyChange} />
+            <label htmlFor="difficulty-easy">Easy</label>
           </div>
           <div>
-            <input type="radio" id="normal" name="difficulty" value="normal" checked={selectedDifficulty === 'normal'} onChange={handleDifficultyChange} />
-            <label htmlFor="normal">Normal</label>
+            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked={selectedDifficulty === 'normal'} onChange={handleDifficultyChange} />
+            <label htmlFor="difficulty-normal">Normal</label>
           </div>
           <div>
-            <input type="radio" id="hard" name="difficulty" value="hard" checked={selectedDifficulty === 'hard'} onChange={handleDifficultyChange} />
-            <label htmlFor="hard">Hard</label>
+            <input type="radio" id="difficulty-hard" name="difficulty" value="hard" checked={selectedDifficulty === 'hard'} onChange={handleDifficultyChange} />
+            <label htmlFor="difficulty-hard">Hard</label>
           </div>
         </div>
       )}
